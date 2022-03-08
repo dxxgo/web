@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Modern Login Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+   
+</head>
+
+<body>
+
+    <form class="form-content" action="">
+        <div class="form-logo">
+            <i class="fa-brands fa-css3"></i>        </div>
+        <h3 class="entrar-top">Entrar</h3>
+
+        <div class="email-block">
+            <input autocomplete="off" type="email" name="email" id="email" required placeholder="email">
+            <label for="email">Email</label>
+        </div>
+
+        <div class="password-block">
+            <input type="password" name="senha" id="senha" required placeholder="senha">
+            <label for="senha">Senha</label>
+            <div onclick='visible(1)' class="visible"><i class="fa-solid fa-eye"></i></div>
+            <div onclick="visible(0)" style="display:none" class="not-visible"><i class="fa-solid fa-eye-slash"></i></div>
+        </div>
+
+        <button class="entrar">Entrar</button>
+
+
+
+        <div class="forgot-pass-block">
+            <a href="" class="cadastro">
+                Esqueci minha senha
+                <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <a href="" class="voltar">
+            <i class="fa-solid fa-arrow-left"></i>
+        </a>
+
+
+    </form>
+
+
+    <script src="./js/javascript.js"></script>
+</body>
+
+</html>
