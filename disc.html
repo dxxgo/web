@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,100;1,200;1,400;1,500;1,600;1,800&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+
+        }
+
+        a {
+            text-decoration: none;
+            color: #555;
+        }
+
+        body {
+            background-color: #eee;
+        }
+
+        .card, .disabled-card {
+            background-color: #fff;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 10px;
+            transition: all .5s ease;
+            position: relative;
+        }
+
+        .disabled-card {
+            background-color: #ddd;
+            color: #888;
+            font-size: 1.2em;
+
+            transition: all .5s ease;
+        }
+        .disabled-card:hover {
+            transform: scale(.9);
+        }
+
+        .card:hover {
+            box-shadow: 0 0 10px 0px rgba(0, 0, 0, .2);
+
+            transform: scale(1.05);
+        }
+
+        .grid-container {
+            width: 100%;
+            display: grid;
+            gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+
+        }
+
+        main {
+            margin: 0 auto;
+            width: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .disc {
+            font-size: 1.5em;
+            color: #555;
+            font-weight: 600;
+            margin-bottom: 1em;
+        }
+
+        .btn-abrir {
+            font-size: .8em;
+            width: 100%;
+            padding: .5em;
+            background: linear-gradient(90deg, rgb(78, 190, 255), rgb(134, 211, 255), rgb(78, 190, 255));
+            background-size: 400px;
+            background-position-x: -400px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            color: white;
+            position: absolute;
+            bottom: 0%;
+
+            transition: background .5s ease;
+        }
+
+        .btn-abrir:hover {
+            background-position-x: 100px;
+        }
+
+        .card-title {
+            font-size: .8em;
+            color: #555;
+        }
+
+        .icone {
+            color: rgb(78, 190, 255);
+            font-size: 1.2em;
+
+        }
+
+        .card-inic {
+            width: 90%;
+            height: 90%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #disabled-alert {
+            font-size: .6em;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+        <p class="disc">Disciplinas</p>
+
+        <div class="grid-container">
+            <div class="card">
+                <div class="card-inic">
+                    <i class="icone uil uil-user"></i>
+                    <p class="card-title">Interface com o usuário</p>
+                </div>
+                <a class="btn-abrir" target="" href="https://meet.google.com/noy-zjvq-dxa">Abrir</a>
+            </div>
+
+
+            <div class="card">
+                <div class="card-inic">
+                    <i class="icone uil uil-bag"></i>
+                    <p class="card-title">Sistemas de Apoio a Gestão</p>
+                </div>
+                <a class="btn-abrir" href="">Abrir</a>
+            </div>
+
+
+            <div class="card">
+                <div class="card-inic">
+                    <i class="icone uil uil-cloud-data-connection"></i>
+                    <p class="card-title">Auditoria e Seg. de Sistemas</p>
+                </div>
+                <a class="btn-abrir" href="">Abrir</a>
+            </div>
+
+
+            <div class="card">
+                <div class="card-inic">
+                    <i class="icone uil uil-info-circle"></i>
+                    <p class="card-title">Gestão da Informação</p>
+                </div>
+                <a class="btn-abrir" href="">Abrir</a>
+            </div>
+
+            <div class="disabled-card">
+                <i class="uil uil-lock"></i>
+                <p id="disabled-alert">disabled type</p>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
