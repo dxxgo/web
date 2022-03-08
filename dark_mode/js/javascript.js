@@ -15,14 +15,3 @@ function claro() {
     $('#claro').addClass('display-none');
     $('#escuro').removeClass('display-none');
 }
-
-function alterarFundo(){
-    let corAtual = $( 'body' ).css('background-color');
-    if (corAtual == 'rgb(255, 255, 255)') {
-        $( 'body' ).css('background-color', 'rgb(0, 0, 0)');
-        return;
-    } else {
-        $( 'body' ).css('background-color', 'rgb(255, 255, 255)');
-
-    }
-}
