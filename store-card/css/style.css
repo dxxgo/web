@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(240, 248, 255, 0.5);
+}
+
+
+
+.cards-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+    padding: 40px 0;
+}
+
+.grid-cards {
+    margin: 10% 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    width: 80%;
+    gap: 40px;
+}
+
+.card-img img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.card-img {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    contain: content;
+}
+
+.grid-cards .card {
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 5px 15px -5px #9999;
+    transition: all .3s ease;
+}
+
+.grid-cards .card:hover {
+    transform: scale(1.02);
+}
+
+.description {
+    margin-bottom: 3em;
+}
+.description p {
+    color: #777;
+}
+
+
+.preco {
+    top: 20px;
+    left: 20px;
+    font-size: 1.5em;
+    font-weight: 800;
+    color: #555;
+}
+
+.add-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 60%;
+    height: 3em;
+    border: none;
+    background-color: rgb(3, 3, 3);
+    border-radius: 10px;
+    font-size:.8em;
+    color: white;
+    font-weight: 800;
+    padding: 0;
+    cursor: pointer;
+    border: 2px solid black;
+    
+    transition: all .5s ease;
+}
+
+
+.add-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.reactions {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .8em;
+}
+
+.reactions i {
+    font-size: 1em;
+    color: #555;
+    cursor: pointer;
+    transition: color .3s ease;
+}
+
+.reactions i:hover {
+    color: black;
+}
+
+.mais-fotos {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.mais-fotos a {
+    text-decoration: none;
+    text-transform: none;
+    background-color: white;
+    padding: 2px 10px;
+    border: 1px solid #777;
+    border-radius: 100px;
+    font-size: .7em;
+    color: #777;
+    transition: all .3s ease;
+}
+
+.mais-fotos a:hover {
+    border-color: #000;
+    color: #000;
+}
