@@ -118,7 +118,7 @@ a {
     margin-top: 0px;
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 360px) {
 
     body {
         padding: 80px 0;
