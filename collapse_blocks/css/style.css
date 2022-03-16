@@ -1,0 +1,143 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.blocks-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap:10px;
+}
+
+
+.block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    flex-direction: column;
+}
+
+.block-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #eee;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.block-image {
+    width: 6.25em;
+    height: 6.25em;
+    border-radius: 10px;
+    contain: content;
+}
+
+.block-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.block-content .informations-content {
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.informations-content .title {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.informations-content .description {
+    text-align: justify;
+    font-size: .9em;
+    color: #555;
+}
+
+.more-content-button {
+    width: 100%;
+    height: 30px;
+    border-radius: 0 0 10px 10px;
+    background-color: cornflowerblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    contain: content;
+}
+
+.more-content-button a {
+    width: 100%;
+    text-align: center;
+    height: 100%;
+    color: white;
+    font-size: .8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+
+.more-content-button a:hover {
+    background-color: rgb(121, 163, 240);
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    text-transform: none;
+}
+
+.more-content-block {
+    background-color: rgb(71, 115, 197);
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease;
+    margin-top: 10px;
+}
+
+.off {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+@media screen and (min-width: 500px) {
+
+    .block-content {
+        flex-direction: row;
+        align-items:start;
+    }
+    .block {
+        width: 50%;
+    }
+
+    .block-image  {
+        min-width: 6.25em;
+    }
+
+    .block-content .informations-content {
+    text-align: left;
+    padding: 0 10px;
+    padding-right: 0;
+}
+}
