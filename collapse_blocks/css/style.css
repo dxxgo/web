@@ -8,10 +8,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    
 }
 
 .blocks-container {
@@ -123,12 +120,17 @@ a {
 
 @media screen and (min-width: 500px) {
 
+    body {
+        padding: 80px 0;
+    }
+
     .block-content {
         flex-direction: row;
         align-items:start;
     }
     .block {
-        width: 50%;
+        
+        width: 40%;
     }
 
     .block-image  {
