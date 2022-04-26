@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Images Gallery</title>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galeria de imagens com barra de pesquisa que utiliza palavras chave das imagens para realizar as buscas">
+    <meta name="keywords" content="image, gallery">
+    <meta name="author" content="Diêgo Ferreira">
+
+    <!-- CSS import -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- Unicons Import -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+
+<body>
+    <h1 class="page-title"><i class="uil uil-images"></i>Image Gallery</h1>
+
+    <div class="gallery-container">
+        <div class="gallery__search">
+            <div class="search-block">
+                <input placeholder="Procurar imagem" type="search" name="pesquisa" id="pesquisa">
+                <label for="pesquisa"><i class="uil uil-search-alt"></i></label>
+            </div>
+            <button>Buscar</button>
+        </div>
+        <button id="allImages"><i class="uil uil-image"></i>Todas</button>
+        <div class="gallery__images-container">
+
+            <div class="image-block">
+                <img kw="mario, kart, corrida, jogo, nintendo" src="./images/mario-kart1.jpg" alt="Mario Kart">
+            </div>
+
+            <div class="image-block">
+                <img kw="filme, spider, man, aranha, homem, marvel" src="./images/spiderman.jpg" alt="Spider Man">
+            </div>
+
+            <div class="image-block">
+                <img kw="jogo, nintendo 64, arma, army, men, soldado, tiro" src="./images/armymen.jpg" alt="Army Men">
+            </div>
+
+            <div class="image-block">
+                <img kw="yoshi, mario kart, carro, burrinha" src="./images/yoshi__mario-kart.jpg" alt="Yoshi Mario Kart">
+            </div>
+
+            <div class="image-block">
+                <img kw="joker, palhaço, filme" src="./images/joker1.jpg" alt="Joker">
+            </div>
+
+            <div class="image-block">
+                <img kw="donnie darko, filme, netflix" src="./images/donniedarko.jpg" alt="Donnie Darko">
+            </div>
+
+            <div class="image-block">
+                <img kw="army men, nintendo, arma, soldado, guerra, 64" src="./images/armymen2.jpg" alt="Army Men">
+            </div>
+
+            <div class="image-block">
+                <img kw="donnie darko, filme, universo paralelo" src="./images/donniedarko2.jpg" alt="Donnie Darko">
+            </div>
+
+            <div class="image-block">
+                <img kw="joker, palhaço, filme" src="./images/joker2.jpg" alt="">
+            </div>
+
+            <div class="image-block">
+                <img kw="homem aranha, spider man, spider" src="./images/spiderman2.jpg" alt="">
+            </div>
+
+            <div class="image-block">
+                <img kw="luigi, mario, kart, corrida, verde" src="./images/luigi.jpg" alt="">
+            </div>
+
+            <div class="image-block">
+                <img kw="homem, aranha, spider man, spider" src="./images/spiderman3.jpg" alt="">
+            </div>
+
+
+        </div>
+
+        <div class="gallery__results displayNone">
+
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
