@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap');
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
 
 .page-title {
     color: #eee;
+    text-align: center;
 }
 
 .page-title i {
@@ -32,7 +34,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px
 }
 
 .gallery__images-container,
@@ -42,6 +43,20 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
     gap: 10px;
+    padding: 10px;
+    min-height: 250px;
+    background-color: #111;
+    position: relative;
+}
+
+.noneResults {
+    color: #333;
+    font-size: 1.5em;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
 }
 
 .image-block {
@@ -82,6 +97,7 @@ body {
     border: none;
     border-radius: 6px;
     padding-left: 35px;
+    padding-right: 10px;
     width: 100%;
     height: 30px;
     color: #eee;
@@ -92,7 +108,7 @@ body {
     left: 10px;
     transform: translateY(-50%);
     top: 50%;
-    color: #555;
+    color: #777;
 }
 
 .gallery__search button {
@@ -104,6 +120,15 @@ body {
     border-radius: 6px;
     color: black;
     font-weight: 600;
+    transition: all .3s ease;
+}
+
+.gallery__search button:hover {
+    opacity: .8;
+}
+
+.gallery__search button:active {
+    opacity: 1;
 }
 
 #allImages {
@@ -111,9 +136,12 @@ body {
     background-color: transparent;
     border-radius: 20px;
     color: white;
-    border: 2px solid white;
+    border: none;
     cursor: pointer;
     transition: all .3s ease;
+    opacity: .4;
+    position: relative;
+    margin: 10px;
 }
 
 #allImages i {
@@ -121,21 +149,12 @@ body {
 }
 
 #allImages:hover {
-    background-color: white;
-    color: black;
+    opacity: 1;
 }
 
-#allImages:active {
-    background-color: #ddd;
-    border-color: #ddd;
-}
-
-.noneResults {
-    color: #999;
-    font-size: 2em;
-    text-align: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%);
+.qnt-imagens {
+    color: #eee;
+    line-height: 1;
+    margin-bottom: 20px;
+    opacity: .8;
 }
