@@ -8,10 +8,13 @@ let allImagesBtn = document.querySelector('#allImages');
 let galleryContainer = document.querySelector('.gallery-container')
 let displayImagesQtd = document.querySelector('.qnt-imagens');
 
-searchInput.addEventListener('keypress', (tecla) => {
+searchBtn.style.display = 'none';
+
+searchInput.addEventListener('keyup', (tecla) => {
     if (tecla.key === 'Enter') {
         searchBtn.click();
     }
+    searchBtn.click();
 })
 
 allImagesBtn.addEventListener('click', () => {
@@ -19,16 +22,20 @@ allImagesBtn.addEventListener('click', () => {
     galleryResults.classList.add('displayNone');
     allImagesBtn.style.opacity = '1';
     displayImagesQtd.classList.add('displayNone');
-    galleryContainerMaxWidth('800px');
+    galleryContainerWidth('900px');
 })
 
 searchBtn.addEventListener('click', () => {
-    galleryContainerMaxWidth('800px');
+    galleryContainerWidth('900px');
     let inputSearch = document.querySelector('.gallery__search input');
+    if (inputSearch.value.length === 0) {
+        allImagesBtn.click();
+        return;
+    }
     searchImage(formatList(inputSearch.value.split(' ')));
     galleryAllImages.classList.add('displayNone');
     galleryResults.classList.remove('displayNone');
-    allImagesBtn.style.opacity = '.7'
+    allImagesBtn.style.opacity = '.5'
 })
 
 imagesList.forEach((img, indice) => {
@@ -39,7 +46,7 @@ imagesList.forEach((img, indice) => {
     });
 })
 
-function galleryContainerMaxWidth(maxWidth) {
+function galleryContainerWidth(maxWidth) {
     galleryContainer.style.maxWidth = maxWidth;
 }
 
@@ -56,11 +63,11 @@ function galleryResultsHTML(results) {
     } else {
         displayImagesQtd.classList.remove('displayNone');
         if (results.length === 1) {
-            galleryContainerMaxWidth('400px');
+            galleryContainerWidth('400px');
         } else if (results.length === 2) {
-            galleryContainerMaxWidth('600px');
+            galleryContainerWidth('600px');
         } else if (results.length === 3) {
-            galleryContainerMaxWidth('800px')
+            galleryContainerWidth('800px')
         }
 
         galleryResults.innerHTML = '';
