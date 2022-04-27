@@ -109,6 +109,5 @@ function formatList(list) {
                 newList.push(e);
             }
         })
-        // remove itens repetidos da lista
     return newList;
 }
