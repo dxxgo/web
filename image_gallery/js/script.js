@@ -19,11 +19,11 @@ allImagesBtn.addEventListener('click', () => {
     galleryResults.classList.add('displayNone');
     allImagesBtn.style.opacity = '1';
     displayImagesQtd.classList.add('displayNone');
-    galleryContainerWidth('900px');
+    galleryContainerMaxWidth('800px');
 })
 
 searchBtn.addEventListener('click', () => {
-    galleryContainerWidth('900px');
+    galleryContainerMaxWidth('800px');
     let inputSearch = document.querySelector('.gallery__search input');
     searchImage(formatList(inputSearch.value.split(' ')));
     galleryAllImages.classList.add('displayNone');
@@ -39,8 +39,8 @@ imagesList.forEach((img, indice) => {
     });
 })
 
-function galleryContainerWidth(width) {
-    galleryContainer.style.width = width;
+function galleryContainerMaxWidth(maxWidth) {
+    galleryContainer.style.maxWidth = maxWidth;
 }
 
 function galleryResultsHTML(results) {
@@ -56,11 +56,11 @@ function galleryResultsHTML(results) {
     } else {
         displayImagesQtd.classList.remove('displayNone');
         if (results.length === 1) {
-            galleryContainerWidth('400px');
+            galleryContainerMaxWidth('400px');
         } else if (results.length === 2) {
-            galleryContainerWidth('600px');
+            galleryContainerMaxWidth('600px');
         } else if (results.length === 3) {
-            galleryContainerWidth('800px')
+            galleryContainerMaxWidth('800px')
         }
 
         galleryResults.innerHTML = '';
