@@ -32,7 +32,7 @@ searchBtn.addEventListener('click', () => {
         allImagesBtn.click();
         return;
     }
-    searchImage(formatList(inputSearch.value.split(' ')));
+    searchImage(formatList(inputSearch.value.normalize('NFD').replace(/[\u0300-\u036f]/g, "").split(' ')));
     galleryAllImages.classList.add('displayNone');
     galleryResults.classList.remove('displayNone');
     allImagesBtn.style.opacity = '.5'
