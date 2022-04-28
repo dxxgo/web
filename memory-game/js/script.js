@@ -1,8 +1,20 @@
 let btn = document.querySelector('#ff');
 const cardsContainer = document.querySelectorAll('.cards-container .card');
-let selectedCards = []
-let checkedCards = []
-let imagesIdentifiers = shuffleArray(20, 30)
+let selectedCards = [];
+let checkedCards = [];
+let imagesIdentifiers = shuffleArray(20, 30);
+let statusTempo = document.querySelector('.status__tempo span');
+let statusJogadas = document.querySelector('.status__jogadas span');
+let restartGameBtn = document.querySelector('.restartGameBtn');
+let containerGeral = document.querySelector('.container');
+let loadingIcon = document.querySelector('.loadingIcon');
+
+
+containerGeral.style.display = 'none';
+setInterval(() => {
+    containerGeral.style.display = 'block';
+    loadingIcon.style.display = 'none';
+}, 2000);
 
 function shuffleArray(start, end) {
     let arr = []
@@ -58,6 +70,7 @@ cardsContainer.forEach((card) => {
         selectedCards.push(e);
 
         if (selectedCards.length === 2) {
+            addJogadas();
             allCardsPointerEvents('none');
             compareCards(selectedCards);
         }
@@ -76,7 +89,6 @@ function compareCards(selectedCardsToCompare) {
     if (card1ImgLink === card2ImgLink) {
         equalsCards(card1, card2);
     } else {
-        console.log('diferente')
         setTimeout(() => {
             enable();
         }, 1000);
@@ -84,12 +96,10 @@ function compareCards(selectedCardsToCompare) {
 
 }
 
-
 function allCardsPointerEvents(state) {
     cardsContainer.forEach((card) => {
         card.firstElementChild.style.pointerEvents = state;
     })
-
 }
 
 function equalsCards(card1, card2) {
@@ -104,3 +114,42 @@ function equalsCards(card1, card2) {
     }, 2000);
 
 }
+
+
+// status code
+
+function addJogadas() {
+    if (statusJogadas.textContent < 9) {
+        let n = statusJogadas.textContent;
+        n++;
+        console.log(n);
+        statusJogadas.textContent = '0' + n;
+        return;
+    }
+    statusJogadas.textContent++;
+
+}
+
+// compensando tempo de loading das imagens
+let seconds = -2;
+let minutes = 0;
+setInterval(() => {
+    seconds++;
+
+
+    if (seconds > 59) {
+        minutes++;
+        seconds = 0;
+    }
+
+    if (seconds < 10) {
+        statusTempo.innerHTML = `${minutes}:0${seconds}`
+    } else {
+        statusTempo.innerHTML = `${minutes}:${seconds}`
+    }
+
+}, 1000);
+
+restartGameBtn.addEventListener('click', () => {
+    location.reload();
+})
