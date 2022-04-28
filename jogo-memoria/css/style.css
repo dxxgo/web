@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap');
+
+/* variables */
+
+:root {
+    --myYellow: #f3cc0a;
+}
+
+
+/* normalize */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #000;
+}
+
+.page-title {
+    opacity: .9;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+.page-title span {
+    font-weight: 400;
+    animation: findme 10s infinite alternate-reverse linear;
+}
+
+@keyframes findme {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.main-content {
+    margin: 0 20px;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 10px;
+    pointer-events: none;
+}
+
+.cards-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(40px, 80px));
+    gap: 6px;
+    pointer-events: none;
+}
+
+.checkedCard {
+    pointer-events: none !important;
+}
+
+.card__stamp {
+    z-index: 9999;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(../images/block.png);
+    background-size: 100% 100%;
+    cursor: pointer;
+    transition: all 1s ease;
+    pointer-events: none;
+    filter: saturate(0) contrast(.9) brightness(.5);
+}
+
+.card__stamp:hover {
+    filter: contrast(1.4);
+}
+
+.card {
+    pointer-events: none;
+    overflow: hidden;
+    position: relative;
+    transition: all .3s ease;
+}
+
+.card__image {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.on {
+    opacity: 1;
+    transition: all 1s ease;
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transition: all 1s ease;
+    transform: rotateY(180deg);
+}
+
+.status-bar {
+    right: 0;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    margin-top: 10px;
+}
+
+.status-bar-container {
+    width: calc(100% - 40px);
+    background-color: #111;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    position: relative;
+}
+
+.status__jogadas {
+    color: white;
+    font-size: .8em;
+}
+
+.status__jogadas span {
+    color: var(--myYellow);
+    font-weight: 800;
+}
+
+.status__tempo {
+    font-size: 1em;
+    color: var(--myYellow);
+}
+
+.playGame {
+    width: 60%;
+    height: 40px;
+    font-weight: 800;
+    background-color: var(--myYellow);
+    border-radius: 20px;
+    border: 2px solid var(--myYellow);
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    top: calc(50% - 20px);
+    cursor: pointer;
+    transition: all .3s ease;
+    z-index: 99999;
+    line-height: 0;
+    box-shadow: 0 0 50px 0 black;
+}
+
+.restartGameBtn span {
+    display: none;
+}
+
+.playGame:hover {
+    border-color: #fadc46;
+    background-color: #fadc46;
+}
+
+.restartGameBtn {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid white;
+    transition: all .3s ease;
+    display: none;
+}
+
+.container {
+    position: relative;
+}
+
+.restartGameBtn:hover {
+    background-color: #ccc;
+    border-color: #ccc;
+}
+
+.loadingIcon {
+    position: absolute;
+    color: white;
+    font-size: 2em;
+    color: var(--myYellow);
+    animation: loading 2s infinite linear
+}
+
+@keyframes loading {
+    to {
+        transform: rotate(0deg);
+    }
+    from {
+        transform: rotate(-360deg);
+    }
+}
+
+@media screen and (min-width:800px) {
+    .cards-container {
+        grid-template-columns: repeat(5, minmax(40px, 80px));
+    }
+    .playGame span,
+    .restartGameBtn span {
+        display: inline;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .playGame span,
+    .restartGameBtn span {
+        display: inline;
+    }
+    .status-bar-container {
+        padding: 10px 20px;
+    }
+}
