@@ -10,6 +10,12 @@ let loadingIcon = document.querySelector('.loadingIcon');
 // buttons
 let restartGameBtn = document.querySelector('.restartGameBtn');
 let playGameBtn = document.querySelector('.playGame');
+let finalStatus = document.querySelector('.final-status');
+
+// counters
+let chkCardsQtd = 0;
+let actualTime = 0;
+let attPlays = 0;
 
 function shuffleArray(start, end) {
     let arr = []
@@ -99,16 +105,47 @@ function allCardsPointerEvents(state) {
     })
 }
 
+function addChkIcon(cards) {
+    cards.forEach((card) => {
+        card.path[1].innerHTML =
+            `<span id="nice"><i class="uil uil-check"></i></span>` +
+            card.path[1].innerHTML
+    })
+
+    document.querySelectorAll('#nice i').forEach((e) => {
+        e.classList.add('_upup');
+    })
+
+    setTimeout(() => {
+        document.querySelectorAll('#nice i').forEach((e) => {
+            e.classList.remove('_upup');
+        })
+    }, 1000);
+
+}
+
 function equalsCards(card1, card2) {
     card1.path[1].classList.add('checkedCard');
     card2.path[1].classList.add('checkedCard');
     checkedCards.push(card1);
     checkedCards.push(card2);
 
+    chkCardsQtd++;
+
+    if (chkCardsQtd === 10) {
+        setTimeout(() => {
+            finalResult(attPlays, actualTime);
+        }, 1000);
+    }
+
     setTimeout(() => {
         allCardsPointerEvents('all');
         selectedCards = []
     }, 2000);
+
+    setTimeout(() => {
+        addChkIcon([card1, card2]);
+    }, 1000);
 
 }
 
@@ -116,10 +153,10 @@ function equalsCards(card1, card2) {
 // status code
 
 function addJogadas() {
+    attPlays++;
     if (statusJogadas.textContent < 9) {
         let n = statusJogadas.textContent;
         n++;
-        console.log(n);
         statusJogadas.textContent = '0' + n;
         return;
     }
@@ -142,8 +179,10 @@ playGameBtn.addEventListener('click', () => {
 
         if (seconds < 10) {
             statusTempo.innerHTML = `${minutes}:0${seconds}`;
+            actualTime = `${minutes}:0${seconds}`;
         } else {
             statusTempo.innerHTML = `${minutes}:${seconds}`;
+            actualTime = `${minutes}:${seconds}`;
         }
 
     }, 1000);
@@ -160,3 +199,35 @@ setInterval(() => {
     containerGeral.style.display = 'block';
     loadingIcon.style.display = 'none';
 }, 2000);
+
+
+// RESULTADO FINAL
+
+function finalResult(att, time) {
+    finalStatus.style.display = 'grid';
+    finalStatus.innerHTML = (
+        `
+    <div class="f-container">
+                <img class="f-container__image" src="./images/f-emoji.png" alt="">
+
+                <p class="f-msg">Parabéns, você encontrou todos os pares de cartas!!!</p>
+                <p class="f-statics">Aqui estão suas estatísticas:</p>
+                <p class="f-tentativas">Tentativas >
+                    <span>${att}</span>
+                </p>
+
+                <p class="f-tempo">
+                    Tempo >
+                    <span>${time}</span>
+                </p>
+
+
+                <button class="f-btn">Quero jogar de novo!</button>
+            </div>
+    `);
+    document.querySelector('.f-btn').addEventListener('click', () => {
+        location.reload();
+    })
+
+    document.querySelector('.status-bar').style.display = 'none';
+}
