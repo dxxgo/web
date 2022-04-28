@@ -208,7 +208,7 @@ function finalResult(att, time) {
     finalStatus.innerHTML = (
         `
     <div class="f-container">
-                <img class="f-container__image" src="./images/f-emoji.png" alt="">
+                <img class="f-container__image" src="./jogo-memoria/images/f-emoji.png" alt="">
 
                 <p class="f-msg">Parabéns, você encontrou todos os pares de cartas!!!</p>
                 <p class="f-statics">Aqui estão suas estatísticas:</p>
