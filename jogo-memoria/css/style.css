@@ -101,31 +101,27 @@ body {
     transform: scale(.9);
 }
 
+.title-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.icon-game {
+    width: 40px;
+}
+
 .page-title {
     opacity: .9;
     color: white;
     font-size: 2em;
     font-weight: bold;
-    width: 100%;
     text-align: center;
 }
 
-.page-title span {
-    font-weight: 400;
-    animation: findme 10s infinite alternate-reverse linear;
-}
-
-@keyframes findme {
-    0% {
-        opacity: 1;
-    }
-    90% {
-        opacity: .1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
 .main-content {
     margin: 0 20px;
