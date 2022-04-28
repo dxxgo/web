@@ -159,4 +159,4 @@ containerGeral.style.display = 'none';
 setInterval(() => {
     containerGeral.style.display = 'block';
     loadingIcon.style.display = 'none';
-}, 20);
+}, 2000);
