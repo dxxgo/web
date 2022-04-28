@@ -5,16 +5,11 @@ let checkedCards = [];
 let imagesIdentifiers = shuffleArray(20, 30);
 let statusTempo = document.querySelector('.status__tempo span');
 let statusJogadas = document.querySelector('.status__jogadas span');
-let restartGameBtn = document.querySelector('.restartGameBtn');
 let containerGeral = document.querySelector('.container');
 let loadingIcon = document.querySelector('.loadingIcon');
-
-
-containerGeral.style.display = 'none';
-setInterval(() => {
-    containerGeral.style.display = 'block';
-    loadingIcon.style.display = 'none';
-}, 2000);
+// buttons
+let restartGameBtn = document.querySelector('.restartGameBtn');
+let playGameBtn = document.querySelector('.playGame');
 
 function shuffleArray(start, end) {
     let arr = []
@@ -54,6 +49,7 @@ function enable() {
     selectedCards = []
     allCardsPointerEvents('all')
 }
+
 
 cardsContainer.forEach((card) => {
     card.addEventListener('click', (e) => {
@@ -99,6 +95,7 @@ function compareCards(selectedCardsToCompare) {
 function allCardsPointerEvents(state) {
     cardsContainer.forEach((card) => {
         card.firstElementChild.style.pointerEvents = state;
+        card.firstElementChild.style.filter = 'none';
     })
 }
 
@@ -130,26 +127,36 @@ function addJogadas() {
 
 }
 
-// compensando tempo de loading das imagens
-let seconds = -2;
-let minutes = 0;
-setInterval(() => {
-    seconds++;
+playGameBtn.addEventListener('click', () => {
+    allCardsPointerEvents('all')
+    let seconds = 0;
+    let minutes = 0;
+    setInterval(() => {
+        seconds++;
 
 
-    if (seconds > 59) {
-        minutes++;
-        seconds = 0;
-    }
+        if (seconds > 59) {
+            minutes++;
+            seconds = 0;
+        }
 
-    if (seconds < 10) {
-        statusTempo.innerHTML = `${minutes}:0${seconds}`
-    } else {
-        statusTempo.innerHTML = `${minutes}:${seconds}`
-    }
+        if (seconds < 10) {
+            statusTempo.innerHTML = `${minutes}:0${seconds}`;
+        } else {
+            statusTempo.innerHTML = `${minutes}:${seconds}`;
+        }
 
-}, 1000);
+    }, 1000);
+    playGameBtn.style.display = 'none';
+    restartGameBtn.style.display = 'inline';
+})
 
 restartGameBtn.addEventListener('click', () => {
     location.reload();
 })
+
+containerGeral.style.display = 'none';
+setInterval(() => {
+    containerGeral.style.display = 'block';
+    loadingIcon.style.display = 'none';
+}, 2000);

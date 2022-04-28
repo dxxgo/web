@@ -83,7 +83,8 @@ body {
     cursor: pointer;
     filter: contrast(.9);
     transition: all 1s ease;
-    pointer-events: all;
+    pointer-events: none;
+    filter: saturate(0);
 }
 
 .card__stamp:hover {
@@ -115,12 +116,6 @@ body {
     transform: rotateY(180deg);
 }
 
-@media screen and (min-width:800px) {
-    .cards-container {
-        grid-template-columns: repeat(5, minmax(40px, 80px));
-    }
-}
-
 .status-bar {
     right: 0;
     width: 100%;
@@ -136,7 +131,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 10px;
     position: relative;
 }
 
@@ -155,6 +150,29 @@ body {
     color: var(--myYellow);
 }
 
+.playGame {
+    padding: 4px 8px;
+    font-weight: 800;
+    background-color: var(--myYellow);
+    border-radius: 20px;
+    border: 2px solid var(--myYellow);
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.playGame span,
+.restartGameBtn span {
+    display: none;
+}
+
+.playGame:hover {
+    border-color: #fadc46;
+    background-color: #fadc46;
+}
+
 .restartGameBtn {
     position: absolute;
     left: 50%;
@@ -167,11 +185,12 @@ body {
     font-weight: bold;
     border: 2px solid white;
     transition: all .3s ease;
+    display: none;
 }
 
 .restartGameBtn:hover {
-    background-color: transparent;
-    color: white;
+    background-color: #ccc;
+    border-color: #ccc;
 }
 
 .loadingIcon {
@@ -188,5 +207,25 @@ body {
     }
     from {
         transform: rotate(-360deg);
+    }
+}
+
+@media screen and (min-width:800px) {
+    .cards-container {
+        grid-template-columns: repeat(5, minmax(40px, 80px));
+    }
+    .playGame span,
+    .restartGameBtn span {
+        display: inline;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .playGame span,
+    .restartGameBtn span {
+        display: inline;
+    }
+    .status-bar-container {
+        padding: 10px 20px;
     }
 }
