@@ -113,8 +113,8 @@ function addChkIcon(cards) {
             card.path[1].innerHTML
     })
 
-    document.querySelectorAll('#nice i').forEach((e) => {
-        e.classList.add('_upup');
+    cards.forEach((card) => {
+        card.path[1].firstElementChild.firstElementChild.classList.add('_upup');
     })
 
     setTimeout(() => {
