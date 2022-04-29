@@ -110,9 +110,8 @@ body {
     padding-bottom: 20px;
 }
 
-.iconFindmee {
-    max-width: 40px;
-    max-height: 40px;
+.icon-game {
+    width: 40px;
 }
 
 .page-title {
