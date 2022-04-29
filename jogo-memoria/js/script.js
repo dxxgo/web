@@ -35,7 +35,6 @@ cardsContainer.forEach((card) => {
     let id = imagesIdentifiers.pop();
     let src = `./jogo-memoria/images/cards-image/image${id}.png`
     card.lastElementChild.src = src;
-
 })
 
 
