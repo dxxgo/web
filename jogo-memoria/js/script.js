@@ -2,7 +2,7 @@ let btn = document.querySelector('#ff');
 const cardsContainer = document.querySelectorAll('.cards-container .card');
 let selectedCards = [];
 let checkedCards = [];
-let imagesIdentifiers = shuffleArray(20, 30);
+let imagesIdentifiers = shuffleArray(1, 11);
 let statusTempo = document.querySelector('.status__tempo span');
 let statusJogadas = document.querySelector('.status__jogadas span');
 let containerGeral = document.querySelector('.container');
@@ -23,6 +23,7 @@ function shuffleArray(start, end) {
         arr.push(k);
         arr.push(k)
     }
+    console.log(arr);
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -32,8 +33,8 @@ function shuffleArray(start, end) {
 
 cardsContainer.forEach((card) => {
     let id = imagesIdentifiers.pop();
-    let src = `http://picsum.photos/id/${id}/100/130`
-    card.lastElementChild.src = src
+    let src = `./images/cards-image/image${id}.png`
+    card.lastElementChild.src = src;
 })
 
 
@@ -208,7 +209,7 @@ function finalResult(att, time) {
     finalStatus.innerHTML = (
         `
     <div class="f-container">
-                <img class="f-container__image" src="./jogo-memoria/images/f-emoji.png" alt="">
+                <img class="f-container__image" src="./images/f-emoji.png" alt="">
 
                 <p class="f-msg">Parabéns, você encontrou todos os pares de cartas!!!</p>
                 <p class="f-statics">Aqui estão suas estatísticas:</p>
