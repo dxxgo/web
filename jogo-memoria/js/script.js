@@ -100,9 +100,9 @@ function compareCards(selectedCardsToCompare) {
 }
 
 function allCardsPointerEvents(state) {
-    cardsContainer.forEach((card) => {
-        card.firstElementChild.style.pointerEvents = state;
-        card.firstElementChild.style.filter = 'none';
+    document.querySelectorAll('.cards-container .card .card__stamp').forEach((span) => {
+        span.style.pointerEvents = state;
+        span.style.filter = 'none';
     })
 }
 
