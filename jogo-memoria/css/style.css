@@ -26,6 +26,135 @@ body {
     background-color: #000;
 }
 
+.container {
+    position: relative;
+}
+
+.title-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+    padding: 10px;
+    margin: 0 20px;
+    position: relative;
+}
+
+.icon-game {
+    width: 30px;
+}
+
+.page-title {
+    opacity: .9;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.left-block {
+    left: 10px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+}
+
+.social-btn {
+    color: white;
+    display: grid;
+    right: 10px;
+    place-items: center;
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+}
+
+._open,
+._close {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    border-radius: 100%;
+    transition: all .3s ease;
+    color: var(--myYellow);
+}
+
+._open:hover {
+    background-color: #333;
+}
+
+._display-none {
+    display: none;
+}
+
+.toggle-menu {
+    transform: translateY(-50%) scale(0) !important;
+    pointer-events: none;
+    transition: all .3s ease;
+    width: 0 !important;
+}
+
+.social-menu {
+    bottom: -100%;
+    transform: translateY(50%) scale(1);
+    position: absolute;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    background-color: var(--myYellow);
+    transition: all .3s ease;
+    border-radius: 6px;
+    width: 60px;
+    padding: 10px 0;
+    overflow: hidden;
+}
+
+.close--active {
+    background-color: var(--myYellow);
+    color: black;
+}
+
+.social-btn,
+.social-menu {
+    z-index: 2000;
+}
+
+#bg-to-close-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: black;
+    opacity: .6;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+
+.social-menu a {
+    color: black;
+    text-decoration: none;
+    text-transform: none;
+    font-size: 1.2em;
+    line-height: 1.2;
+    transition: all .3s ease;
+    text-align: center;
+}
+
+.social-menu a:last-child {
+    margin-top: 20px;
+}
+
+.social-menu a:hover {
+    background-color: black;
+    color: var(--myYellow);
+}
+
 .final-status {
     transition: all .3s ease-in-out;
     width: 100%;
@@ -101,27 +230,6 @@ body {
     transform: scale(.9);
 }
 
-.title-block {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 10px;
-    padding-bottom: 20px;
-}
-
-.icon-game {
-    width: 40px;
-}
-
-.page-title {
-    opacity: .9;
-    color: white;
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-}
-
 .main-content {
     margin: 0 20px;
     background-color: #111;
@@ -148,7 +256,7 @@ body {
     width: 100%;
     height: 100%;
     position: absolute;
-    background-image: url(../images/block.png);
+    background-image: url(https://raw.githubusercontent.com/diegofrr/findme.e/main/memory_game/images/block.png);
     background-size: 100% 100%;
     cursor: pointer;
     transition: all 1s ease;
@@ -261,10 +369,6 @@ body {
     display: none;
 }
 
-.container {
-    position: relative;
-}
-
 .restartGameBtn:hover {
     background-color: #ccc;
     border-color: #ccc;
@@ -294,6 +398,7 @@ body {
     min-height: 100%;
     background-color: rgba(0, 0, 0, .5);
     display: grid;
+    pointer-events: none;
 }
 
 #nice i {
@@ -312,6 +417,7 @@ body {
 }
 
 ._upup {
+    pointer-events: none;
     animation: _upup .4s infinite alternate-reverse ease-in-out;
 }
 

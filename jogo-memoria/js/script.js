@@ -11,11 +11,33 @@ let loadingIcon = document.querySelector('.loadingIcon');
 let restartGameBtn = document.querySelector('.restartGameBtn');
 let playGameBtn = document.querySelector('.playGame');
 let finalStatus = document.querySelector('.final-status');
-
 // counters
 let chkCardsQtd = 0;
 let actualTime = 0;
 let attPlays = 0;
+let socialMenuBtn = document.querySelector('.social-btn');
+let socialMenu = document.querySelector('.social-menu');
+let openMenu = document.querySelector('._open');
+let closeMenuBtn = document.querySelector('._close');
+let bgCloseMenu = document.querySelector('#bg-to-close-menu');
+
+socialMenuBtn.addEventListener('click', () => {
+    closeOpenMenu();
+})
+
+bgCloseMenu.addEventListener('click', () => {
+    closeOpenMenu();
+})
+
+function closeOpenMenu() {
+    socialMenu.classList.toggle('toggle-menu');
+    openMenu.classList.toggle('_display-none');
+    closeMenuBtn.classList.toggle('_display-none');
+    closeMenuBtn.classList.toggle('close--active')
+    bgCloseMenu.classList.toggle('_display-none')
+}
+
+
 
 function shuffleArray(start, end) {
     let arr = []
@@ -23,7 +45,7 @@ function shuffleArray(start, end) {
         arr.push(k);
         arr.push(k)
     }
-    console.log(arr);
+
     for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -33,7 +55,9 @@ function shuffleArray(start, end) {
 
 cardsContainer.forEach((card) => {
     let id = imagesIdentifiers.pop();
-    let src = `./jogo-memoria/images/cards-image/image${id}.png`
+    src = `
+    https://raw.githubusercontent.com/diegofrr/findme.e/main/memory_game/images/cards-image/image${id}.png
+    `
     card.lastElementChild.src = src;
 })
 
@@ -117,6 +141,7 @@ function addChkIcon(cards) {
         card.path[1].firstElementChild.firstElementChild.classList.add('_upup');
     })
 
+
     setTimeout(() => {
         document.querySelectorAll('#nice i').forEach((e) => {
             e.classList.remove('_upup');
@@ -172,7 +197,6 @@ playGameBtn.addEventListener('click', () => {
     setInterval(() => {
         seconds++;
 
-
         if (seconds > 59) {
             minutes++;
             seconds = 0;
@@ -196,6 +220,8 @@ restartGameBtn.addEventListener('click', () => {
 })
 
 containerGeral.style.display = 'none';
+
+// Icon de carregamento
 setInterval(() => {
     containerGeral.style.display = 'block';
     loadingIcon.style.display = 'none';
@@ -209,7 +235,7 @@ function finalResult(att, time) {
     finalStatus.innerHTML = (
         `
     <div class="f-container">
-                <img class="f-container__image" src="./jogo-memoria/images/f-emoji.png" alt="">
+                <img class="f-container__image" src="https://raw.githubusercontent.com/diegofrr/findme.e/main/memory_game/images/f-emoji.png">
 
                 <p class="f-msg">Parabéns, você encontrou todos os pares de cartas!!!</p>
                 <p class="f-statics">Aqui estão suas estatísticas:</p>
