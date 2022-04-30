@@ -237,7 +237,7 @@ function finalResult(att, time) {
     <div class="f-container">
                 <img class="f-container__image" src="https://raw.githubusercontent.com/diegofrr/findme.e/main/memory_game/images/f-emoji.png">
 
-                <p class="f-msg">Parabéns, você encontrou todos os pares de cartas!!!</p>
+                <p class="f-msg">Parabéns, você encontrou todos os pares das cartas!!!</p>
                 <p class="f-statics">Aqui estão suas estatísticas:</p>
                 <p class="f-tentativas">Tentativas >
                     <span>${att}</span>
