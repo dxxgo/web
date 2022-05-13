@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+/* import fonts:
+font-family: 'Bree Serif', serif;
+font-family: 'Poppins', sans-serif; 
+*/
+
+:root {
+    --widthCalc: calc(100% - 50px);
+    --breeSerifFont: 'Bree Serif', 'Poppins', sans-serif;
+    --poppinsFont: 'Poppins', sans-serif;
+    --mypink: #c850c0;
+    --myyellow: #ffcc70;
+    --myblue: #4158d0;
+    /* gradients */
+    --gradient1: linear-gradient(45deg, #4158d0ff, #c850c0ff, #ffcc70ff);
+    --gradient2: linear-gradient( 109.6deg, rgba(61, 245, 167, 1) 11.2%, rgba(9, 111, 224, 1) 91.1%);
+}
+
+a {
+    text-decoration: none;
+    font-style: none;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--poppinsFont);
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    background-color: black;
+    width: calc(100% - 50px);
+    position: absolute;
+    right: 0;
+}
+
+.principal {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+/* princpal section bacground */
+
+.principal::before {
+    z-index: -2000;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+.principal__nav {
+    background-color: #20124dff;
+    height: 100%;
+    bottom: 0;
+    width: 40px;
+    left: 0;
+    position: fixed;
+}
+
+#home-icon {
+    position: absolute;
+    color: white;
+    opacity: .5;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+#home-icon:hover {
+    opacity: 1;
+}
+
+#home-icon:active {
+    transform: scale(.8);
+}
+
+.principal__nav ul {
+    transform: rotate(-90deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    height: 100%;
+    gap: 20px;
+}
+
+.principal__nav ul li {
+    white-space: nowrap;
+    cursor: pointer;
+    height: 40px;
+    padding: 0 10px;
+    display: grid;
+    place-items: center;
+    transition: all .3s ease;
+    position: relative;
+    font-size: .8em;
+    color: white;
+    opacity: .5;
+}
+
+.principal__nav ul li:hover {
+    opacity: 1;
+}
+
+.principal__nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 4px;
+    border-radius: 10px;
+    bottom: 6px;
+    background-color: rgb(97, 80, 151);
+    transition: all .3s ease;
+}
+
+.principal__nav ul li:hover::after {
+    width: 50%;
+}
+
+.principal__bloco {
+    background-color: #000;
+    height: 80%;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    position: relative;
+}
+
+.bloco-xxx {
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: .6em;
+    opacity: .3;
+    word-spacing: 10px;
+    display: inline-block;
+}
+
+.principal__bloco::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background: var(--gradient1);
+    top: -100px;
+    left: -100px;
+    display: block;
+    z-index: -2;
+}
+
+.principal__bloco::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background: linear-gradient(-135deg, blue, pink);
+    bottom: -30px;
+    right: -75px;
+}
+
+.principal__title {
+    color: white;
+    font-family: var(--breeSerifFont);
+    font-size: 3.5em;
+    line-height: 1;
+    margin-bottom: 40px;
+}
+
+.principal__img {
+    width: 400px;
+    height: 80%;
+    margin-left: 0px;
+    z-index: 9999;
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    place-items: center;
+}
+
+.principal__img img {
+    height: 100%;
+    position: absolute;
+}
+
+
+/* QUEM SOU SECTION */
+
+.quem-sou-section {
+    border-radius: 10px 0 0 10px;
+    background-color: #111;
+    width: 100%;
+    overflow: hidden;
+}
+
+.quem-sou-container {
+    display: flex;
+    justify-content: right;
+    flex-direction: row-reverse;
+    gap: 20px;
+}
+
+.quem-sou__title {
+    color: white;
+    text-align: right;
+    width: 60%;
+    font-family: var(--breeSerifFont);
+    font-size: 2em;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.quem-sou__image {
+    width: 150px;
+    height: 400px;
+    right: 0;
+    border-radius: 0 0 0 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.quem-sou__image img {
+    position: absolute;
+    height: 100%;
+    left: -250px;
+    transform: scaleX(-1);
+}
+
+.quem-sou__blocos {
+    margin-top: 100px;
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: var(--widthCalc);
+    gap: 10px;
+}
+
+.bloco__item {
+    margin-right: 80px;
+    padding: 5px;
+    background-color: rgb(68, 255, 146);
+    text-align: right;
+    line-height: 1.1;
+    font-weight: 600;
+}
+
+.bloco__item a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    transition: all .3s ease;
+}
+
+.bloco__item::selection {
+    color: #44ff92;
+    background: black
+}
+
+.bloco__item a::selection {
+    color: #44ff92;
+    background: black
+}
+
+.bloco__item a:hover {
+    opacity: .8;
+}
+
+.quem-sou__msg {
+    display: inline-block;
+    margin: 60px 0 20px;
+    width: 100%;
+    text-align: center;
+    opacity: .2;
+}
+
+.quem-sou__msg p {
+    color: white;
+    font-weight: 200;
+    font-size: .6em;
+    opacity: .7;
+}
+
+
+/* projetos section */
+
+.projetos-section {
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.projetos-section::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    height: 80px;
+    top: 0;
+}
+
+.projetos-section::before {
+    content: "";
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: -40px;
+    background: linear-gradient(45deg, transparent 50%, #333)
+}
+
+.projetos__title {
+    font-family: var(--breeSerifFont);
+    font-size: 2em;
+    color: white;
+    width: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.projetos__title::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    transform: translate(-50%);
+    left: calc(50% - 0px);
+    border-radius: 30px;
+    bottom: -30px;
+    height: 10px;
+    background: var(--gradient1);
+    z-index: -1;
+}
+
+.projetos__blocos {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin-bottom: 80px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.projetos__blocos .projeto {
+    background-color: #111;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.projetos__blocos .projeto:hover {
+    transform: scale(1.02);
+}
+
+.projetos__blocos .projeto:active {
+    transform: scale(.95);
+}
+
+.projeto__title {
+    color: #ccc;
+    font-size: .8em;
+    margin-bottom: 10px;
+}
+
+.projeto__img {
+    width: 100%;
+    height: 160px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.projeto__img img {
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%);
+    left: 50%;
+    border-radius: 6px;
+}
+
+
+/* porque-eu section style */
+
+.porque-eu-section {
+    width: 100%;
+    height: 600px;
+    background: var(--gradient1);
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.porque-eu-section::after {
+    content: "";
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 100%;
+    background: linear-gradient(360deg, pink, transparent);
+    bottom: -200px;
+    left: -350px;
+    display: block;
+    z-index: -1;
+}
+
+.porque-eu-section__title {
+    color: rgba(255, 255, 255, .7);
+    font-size: 3.9em;
+    line-height: 1;
+    text-align: right;
+    padding: 20px;
+    display: block;
+}
+
+.porque-eu-section__title span {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+.wtf-image {
+    transform: translate(50%) rotate(15deg);
+    height: 80%;
+    position: absolute;
+    bottom: -20vh;
+    right: -100px;
+    z-index: -2;
+}
+
+.loading-block {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%)
+}
+
+.loading-block p {
+    color: white;
+    font-size: .7em;
+}
+
+.loading-block__loading {
+    display: block;
+    color: white;
+    font-size: 2em;
+    animation: wtfLoading 2s infinite linear, wtfOpac 1s infinite ease-in;
+}
+
+@keyframes wtfLoading {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes wtfOpac {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+/* contato section style */
+
+.contato-section {
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.contato__image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 100%;
+    display: grid;
+    place-items: center;
+    position: relative;
+}
+
+.contato__image img {
+    width: 100%;
+    position: absolute;
+}
+
+.contato__social {
+    display: flex;
+    flex-direction: column;
+}
+
+.contato__social a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    z-index: 0;
+}
+
+.contato__social a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 10px;
+    z-index: -3;
+    background: var(--gradient1);
+    transition: all .3s ease;
+    border-radius: 20px;
+}
+
+.contato__social a:hover::after {
+    width: 50%;
+}
+
+
+/* footer style */
+
+footer {
+    width: 100%;
+    height: 150px;
+    display: grid;
+    place-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer__title {
+    color: white;
+    margin: 40px 0;
+    font-weight: 300;
+    font-size: 1em;
+    position: relative;
+}
+
+.footer__title::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    background: var(--gradient1);
+    left: 60%;
+    bottom: -30%;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+@media screen and (min-width:350px) {
+    .principal__title {
+        font-size: 4.5em;
+    }
+    .principal__bloco::after {
+        bottom: -60px;
+    }
+}
+
+@media screen and (min-width:450px) {
+    .principal__title {
+        font-size: 5em;
+    }
+    .principal__bloco::after {
+        bottom: -90px;
+    }
+}
+
+@media screen and (min-width:600px) {
+    .principal__title {
+        font-size: 7em;
+    }
+    .principal__bloco::after {
+        bottom: -300px;
+        right: -400px;
+        width: 400px;
+        height: 400px;
+    }
+    .projetos__blocos {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .quem-sou-section {
+        padding: 0 60px;
+        position: relative;
+    }
+    .quem-sou-container {
+        width: 100%;
+    }
+    .quem-sou__title {
+        font-size: 20em;
+        left: 60px;
+        position: absolute;
+        text-align: left;
+        opacity: .05;
+        user-select: none;
+    }
+    .quem-sou__image {
+        position: absolute;
+    }
+    .quem-sou__image img {
+        right: 0;
+        position: absolute;
+    }
+    .quem-sou__blocos {
+        justify-content: center;
+        align-items: start;
+        position: relative;
+        width: 100%;
+    }
+    .bloco__item {
+        font-size: 2em;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width:800px) {
+    #principal__span {
+        position: absolute;
+        width: 200px;
+        height: 20px;
+        border-radius: 20px;
+        background: var(--gradient2);
+        left: 10px;
+        bottom: 20px;
+    }
+    .porque-eu-section__title {
+        font-size: 5em;
+        text-align: left;
+    }
+    .porque-eu-section__title span {
+        font-size: 1.4em;
+        line-height: .5;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .principal__img {
+        height: 70%;
+        margin-left: -50px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .principal__img {
+        display: none;
+    }
+}
