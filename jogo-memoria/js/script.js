@@ -21,13 +21,8 @@ let openMenu = document.querySelector('._open');
 let closeMenuBtn = document.querySelector('._close');
 let bgCloseMenu = document.querySelector('#bg-to-close-menu');
 
-socialMenuBtn.addEventListener('click', () => {
-    closeOpenMenu();
-})
-
-bgCloseMenu.addEventListener('click', () => {
-    closeOpenMenu();
-})
+socialMenuBtn.addEventListener('click', closeOpenMenu);
+bgCloseMenu.addEventListener('click', closeOpenMenu);
 
 function closeOpenMenu() {
     socialMenu.classList.toggle('toggle-menu');
@@ -36,8 +31,6 @@ function closeOpenMenu() {
     closeMenuBtn.classList.toggle('close--active')
     bgCloseMenu.classList.toggle('_display-none')
 }
-
-
 
 function shuffleArray(start, end) {
     let arr = []
@@ -65,8 +58,10 @@ cardsContainer.forEach((card) => {
 function enable() {
     selectedCards.forEach((card) => {
         if (!checkedCards.includes(card)) {
-            let cardStamp = card.path[1].firstElementChild;
-            let imageCard = card.path[1].lastElementChild;
+            card = card.target.parentElement;
+
+            let cardStamp = card.firstElementChild;
+            let imageCard = card.lastElementChild;
 
             cardStamp.style.display = 'block';
 
@@ -110,8 +105,11 @@ function compareCards(selectedCardsToCompare) {
     let card1 = selectedCardsToCompare[0];
     let card2 = selectedCardsToCompare[1];
 
-    let card1ImgLink = card1.path[1].lastElementChild.getAttribute('src');
-    let card2ImgLink = card2.path[1].lastElementChild.getAttribute('src');
+    card1 = card1.target.parentElement;
+    card2 = card2.target.parentElement;
+
+    let card1ImgLink = card1.lastElementChild.getAttribute('src');
+    let card2ImgLink = card2.lastElementChild.getAttribute('src');
 
     if (card1ImgLink === card2ImgLink) {
         equalsCards(card1, card2);
@@ -132,13 +130,13 @@ function allCardsPointerEvents(state) {
 
 function addChkIcon(cards) {
     cards.forEach((card) => {
-        card.path[1].innerHTML =
+        card.innerHTML =
             `<span id="nice"><i class="uil uil-check"></i></span>` +
-            card.path[1].innerHTML
+            card.innerHTML
     })
 
     cards.forEach((card) => {
-        card.path[1].firstElementChild.firstElementChild.classList.add('_upup');
+        card.firstElementChild.firstElementChild.classList.add('_upup');
     })
 
 
@@ -151,8 +149,8 @@ function addChkIcon(cards) {
 }
 
 function equalsCards(card1, card2) {
-    card1.path[1].classList.add('checkedCard');
-    card2.path[1].classList.add('checkedCard');
+    card1.classList.add('checkedCard');
+    card2.classList.add('checkedCard');
     checkedCards.push(card1);
     checkedCards.push(card2);
 
